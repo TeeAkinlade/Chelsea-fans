@@ -1,4 +1,4 @@
-import { useState, type SetStateAction } from "react";
+import { useState } from "react";
 import { arsernalIcon, calender, checkMark, chelseaIcon, clock, location, stadium } from "../constants/media";
 import { Select } from "./Select";
 
@@ -94,14 +94,19 @@ const FixtureHighlight = () => {
   ];
   const handleChangeStatus = (selectedOption: OptionType) => {
     setStatus(selectedOption.value);
+    console.log(status)
   };
 
   const handleChangeLeague = (selectedOption: OptionType) => {
     setLeague(selectedOption.value);
+    console.log(league)
+
   };
 
   const handleChangeDate = (selectedOption: OptionType) => {
     setSelectedDate(selectedOption.value);
+    console.log(selectedDate)
+
   };
 
 

@@ -96,25 +96,6 @@ const ShopSection = () => {
     }
   };
 
-  const itemScale: Variants = {
-    hidden: { 
-      opacity: 0, 
-      scale: 0.9,
-      transition: { 
-        duration: 0.6,
-        ease: "easeIn"
-      } as Transition
-    },
-    visible: { 
-      opacity: 1, 
-      scale: 1,
-      transition: { 
-        duration: 0.8,
-        ease: "easeOut"
-      } as Transition
-    }
-  };
-
   return (
     <motion.section 
       id="shop"
