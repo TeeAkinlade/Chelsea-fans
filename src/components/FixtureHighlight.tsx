@@ -131,7 +131,7 @@ const FixtureHighlight = () => {
         </div>
       </div>
       <div className="bg-white rounded-xl shadow flex flex-col md:flex-row gap-4 mb-8">
-        <img src={stadium} alt="stadium" className="w-full md:w-64 h-auto object-cover rounded-tl-lg rounded-bl-lg" />
+        <img src={stadium} alt="stadium" className="w-full md:w-64 h-auto object-cover rounded-tl-lg lg:rounded-bl-lg rounded-tr-lg lg:rounded-tr-none" />
         <div className="flex flex-col lg:flex-row items-center p-3 gap-10">
           <div className="w-full lg:w-[70%]">
             <div className="flex items-center gap-2 text-lg font-semibold mb-4 mt-2">
@@ -140,7 +140,7 @@ const FixtureHighlight = () => {
               <img src={arsernalIcon} alt="Arsenal" className="w-6 h-6" />
               Arsenal
             </div>
-            <div className="flex items-center gap-2 lg:gap-4 text-[11px] lg:text-sm text-gray-500">
+            <div className="flex items-center gap-2 lg:gap-4 text-[9px] lg:text-[11px] lg:text-sm text-gray-500">
               <span className="flex items-center gap-1.5"><img src={calender} alt="calender" className="w-4 h-4" /> {matches[0].date}</span>
               <div className="h-4 w-[1px] bg-gray-400 border-0"></div>
               <span className="flex items-center gap-1.5"><img src={clock} alt="time" className="w-4 h-4" /> {matches[0].time}</span>

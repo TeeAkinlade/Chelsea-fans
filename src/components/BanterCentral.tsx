@@ -13,7 +13,7 @@ const BanterCentral = () => {
         Where over <span className="font-bold text-[#034694]">1,000+</span> Chelsea fans go off — no filters, just vibes.<br />
         Join our <a href={facebookGroupLink} target="_blank" rel="noopener noreferrer" className="text-[#034694] font-semibold">Facebook</a> or <a href={whatsappGroupLink} target="_blank" rel="noopener noreferrer" className="text-green-600 font-semibold">WhatsApp</a> banter groups across<br /> Lagos and other states.
       </p>
-      <button className="bg-[#E6EDF4] text-[#1A1A1A] rounded-md px-5 py-2 font-semibold text-sm my-8 transition-colors hover:bg-[#D6E0EC]">
+      <button className="bg-[#E6EDF4] text-[#1A1A1A] rounded-md px-3 lg:px-5 py-2 font-semibold text-sm my-8 transition-colors hover:bg-[#D6E0EC]">
         Your next football hot take? It belongs here.
       </button>
       <div className="flex flex-row justify-center items-center gap-4 lg:gap-8 mb-4 mt-4">

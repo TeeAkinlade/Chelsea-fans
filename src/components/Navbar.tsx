@@ -49,6 +49,15 @@ const Navbar = () => {
 
   const isActive = (section: string) => activeSection === section;
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [isMenuOpen]);
+
+
   return (
     <nav 
       className={`sticky top-0 z-50 rounded transition-all duration-300 ${hasScrolled ? 'lg:pt-10' : 'lg:pt-10'}`}
@@ -127,9 +136,10 @@ const Navbar = () => {
         <div className={`
           absolute top-full left-0 right-0 bg-white shadow-md md:hidden 
           overflow-hidden transition-all duration-500 ease-in-out 
-          ${isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
+          ${isMenuOpen ? "max-h-screen h-screen opacity-100" : "max-h-0 h-0 opacity-0"}
         `}>
-          <ul className="flex flex-col list-none">
+
+          <ul className="flex flex-col list-none mt-10">
             <li 
               className={`px-4 py-3 text-base hover:bg-gray-50 cursor-pointer transition-all duration-300 transform hover:translate-x-2 border-b border-gray-100 ${
                 isActive('home') ? 'text-[#034694] font-medium' : 'text-gray-900 hover:text-[#034694]'
@@ -162,7 +172,7 @@ const Navbar = () => {
             >
               Community
             </li>
-            <li className="px-4 py-3 transform hover:scale-105 transition-transform duration-300">
+            <li className="px-4 py-3 transform hover:scale-105 transition-transform duration-300 mt-10">
               <button className="w-full bg-[#034694] text-white rounded-full px-6 py-2 font-semibold text-sm hover:bg-blue-900 transition-colors duration-300 cursor-pointer">
                 🔥 JOIN THE SQUAD
               </button>

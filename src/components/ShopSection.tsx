@@ -288,11 +288,11 @@ const ShopSection = () => {
               variants={itemFromRight}
               transition={{ delay: 0.7 }}
             >
-              <div className="w-auto relative h-[263px] rounded-lg bg-[#E9E9E9] overflow-hidden group">
+              <div className="w-auto relative h-[263px] rounded-lg bg-[#E9E9E9] flex items-center justify-center overflow-hidden group">
               <motion.img 
                 src={image5} 
                 alt="shop" 
-                className="w-full h-full object-cover"
+                className="w-auto h-auto lg:w-full lg:h-full object-cover"
                 whileHover={{ scale: 1.1 }}
               />
               <motion.button 
@@ -452,6 +452,13 @@ const ShopSection = () => {
           </div>
         </motion.div>
       </motion.div>
+      <div className="flex items-center justify-center mt-12 lg:hidden">
+        <button 
+          className=" bg-[#034694] shadow text-white rounded-full px-4 py-2 font-semibold text-sm hover:bg-blue-900 transition-all duration-300 cursor-pointer"
+          >
+            Shop Now
+          </button>
+      </div>
     </motion.section>
   );
 };

@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { chelseaLogo, facebook, fan1, fan2, fan3, fan4, overlay, overlay3, whatsapp } from "../constants/media";
 
-// Animation variants
 const container = {
   hidden: { opacity: 0 },
   show: {
@@ -35,6 +34,8 @@ const fanImage = {
 };
 
 const HeroSection = () => {
+  const fanImages = [fan1, fan2, fan3, fan4, fan1, fan4, fan2, fan1, fan3, fan4];
+
   return (
     <motion.div
       id="home"
@@ -43,7 +44,7 @@ const HeroSection = () => {
       className="relative font-inter bg-white lg:min-h-screen pt-16 -mt-2"
       style={{ backgroundImage: `url(${overlay})`, backgroundRepeat: 'repeat', backgroundSize: 'auto' }}
     >
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start gap-2 lg:pt-12 px-8 lg:px-0">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start gap-6 md:gap-2 lg:pt-12 px-8 lg:px-0">
         <motion.div 
           className="flex-1 min-w-[320px] lg:mt-20"
           variants={container}
@@ -69,18 +70,18 @@ const HeroSection = () => {
             Matchday madness, Blue banter, live gist, march, and <br /> global Chelsea vibes — all in one place.
           </motion.p>
           
-          <motion.div variants={buttonsItem} className="flex gap-4 mb-5">
+          <motion.div variants={buttonsItem} className="flex gap-4 pt-5 pb-2 md:pb-0 md:mt-0 mb-5">
             <motion.button 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-[#034694] text-white rounded-full px-3 md:px-2 lg:px-6 py-2 font-semibold text-sm hover:bg-blue-900 transition-colors cursor-pointer"
+              className="bg-[#034694] text-white rounded-full px-2 lg:px-6 py-2 font-semibold text-sm hover:bg-blue-900 transition-colors cursor-pointer"
             >
               🔥 Join The Squad
             </motion.button>
             <motion.button 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gray-100 text-gray-900 rounded-full px-3 md:px-2 lg:px-6 py-2 border border-[#D0D5DD] font-semibold text-sm hover:bg-gray-200 transition-colors cursor-pointer"
+              className="bg-gray-100 text-gray-900 rounded-full px-2 lg:px-6 py-2 border border-[#D0D5DD] font-semibold text-sm hover:bg-gray-200 transition-colors cursor-pointer"
             >
               ⚽ Check Fixtures
             </motion.button>
@@ -109,8 +110,33 @@ const HeroSection = () => {
           </motion.div>
         </motion.div>
 
+        <div className="md:hidden w-full overflow-hidden py-4 relative">
+          <motion.div
+            className="flex gap-4 w-max"
+            animate={{
+              x: ["0%", "-50%"],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          >
+            {[...fanImages, ...fanImages].map((img, index) => (
+              <div key={`mobile-${index}`} className="shrink-0">
+                <img
+                  style={{ backfaceVisibility: "hidden"}}
+                  src={img} 
+                  alt={`Chelsea fan ${index}`} 
+                  className="w-56 h-40 object-cover rounded-xl shadow" 
+                />
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
         <motion.div 
-          className="flex-1 flex items-center justify-center w-full"
+          className="hidden md:flex flex-1 items-center justify-center w-full"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { delay: 0.5 } }}
         >
@@ -185,11 +211,9 @@ const HeroSection = () => {
       <motion.div
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1, transition: { delay: 0.8 } }}
-        className="absolute -bottom-1 left-0 w-full"
-
+        className="absolute -bottom-1 left-0 w-full h-[75px] md:h-auto"
       >
         <img src={overlay3} alt="overlay" className="w-full h-full object-cover" />
-
       </motion.div>
     </motion.div>
   );
