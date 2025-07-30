@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { chelseaLogo, facebook, fan1, fan2, fan3, fan4, overlay, overlay3, whatsapp } from "../constants/media";
+import { useEffect } from "react";
 
 const container = {
   hidden: { opacity: 0 },
@@ -35,6 +36,25 @@ const fanImage = {
 
 const HeroSection = () => {
   const fanImages = [fan1, fan2, fan3, fan4, fan1, fan4, fan2, fan1, fan3, fan4];
+
+  const flipAnimationControls = useAnimation();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      flipAnimationControls.start({
+        rotateY: 360,
+        transition: {
+          duration: 15,
+          ease: "easeInOut",
+          repeat: Infinity,
+          repeatType: "loop"
+        }
+      });
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, [flipAnimationControls]);
+
 
   return (
     <motion.div
@@ -146,8 +166,23 @@ const HeroSection = () => {
               <img src={fan1} alt="Chelsea fan 1" className="w-24 h-24 md:w-28 md:h-28 object-cover rounded-xl shadow" />
             </motion.div>
             <div></div>
-            <motion.div variants={fanImage}>
-              <img src={fan1} alt="Chelsea fan 1" className="w-24 h-24 md:w-28 md:h-28 object-cover rounded-xl shadow" />
+            <motion.div 
+              variants={fanImage}
+              animate={flipAnimationControls}
+              style={{ 
+                transformStyle: "preserve-3d",
+                perspective: "1000px" 
+              }}
+            >
+              <img 
+                src={fan1} 
+                alt="Chelsea fan 1" 
+                className="w-24 h-24 md:w-28 md:h-28 object-cover rounded-xl shadow" 
+                style={{
+                backfaceVisibility: "visible",
+                transformStyle: "preserve-3d"
+              }}
+              />
             </motion.div>
             <div></div>
             <motion.div variants={fanImage}>
@@ -156,8 +191,22 @@ const HeroSection = () => {
             
             {/* Row 2 */}
             <div></div>
-            <motion.div variants={fanImage}>
-              <img src={fan2} alt="Chelsea fan 2" className="w-24 h-24 md:w-28 md:h-28 object-cover rounded-xl shadow" />
+            <motion.div 
+              variants={fanImage}
+              animate={flipAnimationControls}
+            style={{ 
+              transformStyle: "preserve-3d",
+              perspective: "1000px" 
+            }}
+            >
+              <img 
+                src={fan2} alt="Chelsea fan 2" 
+                className="w-24 h-24 md:w-28 md:h-28 object-cover rounded-xl shadow" 
+                style={{
+                  backfaceVisibility: "visible",
+                  transformStyle: "preserve-3d"
+                }}
+              />
             </motion.div>
             <div></div>
             <motion.div variants={fanImage}>
@@ -170,9 +219,21 @@ const HeroSection = () => {
             <div></div>
             <motion.div 
               variants={fanImage}
+              animate={flipAnimationControls}
+              style={{ 
+                transformStyle: "preserve-3d",
+                perspective: "1000px" 
+              }}
               whileHover={{ scale: 1.1, zIndex: 1 }}
             >
-              <img src={fan3} alt="Chelsea fan 3" className="w-24 h-24 md:w-28 md:h-28 object-cover rounded-xl shadow" />
+              <img 
+                src={fan3} alt="Chelsea fan 3" 
+                className="w-24 h-24 md:w-28 md:h-28 object-cover rounded-xl shadow"
+                style={{
+                  backfaceVisibility: "visible",
+                  transformStyle: "preserve-3d"
+                }}
+              />
             </motion.div>
             <div></div>
             <motion.div variants={fanImage}>
@@ -188,8 +249,22 @@ const HeroSection = () => {
               <img src={fan4} alt="Chelsea fan 4" className="w-24 h-24 md:w-28 md:h-28 object-cover rounded-xl shadow" />
             </motion.div>
             <div></div>
-            <motion.div variants={fanImage}>
-              <img src={fan1} alt="Chelsea fan 4" className="w-24 h-24 md:w-28 md:h-28 object-cover rounded-xl shadow" />
+            <motion.div 
+              variants={fanImage}
+              animate={flipAnimationControls}
+            style={{ 
+              transformStyle: "preserve-3d",
+              perspective: "1000px" 
+            }}  
+            >
+              <img 
+              src={fan1} alt="Chelsea fan 4" 
+              className="w-24 h-24 md:w-28 md:h-28 object-cover rounded-xl shadow" 
+              style={{
+                backfaceVisibility: "visible",
+                transformStyle: "preserve-3d"
+              }}
+            />
             </motion.div>
             <div></div>
             
@@ -198,7 +273,9 @@ const HeroSection = () => {
               <img src={fan1} alt="Chelsea fan 1" className="w-24 h-24 md:w-28 md:h-28 object-cover rounded-xl shadow" />
             </motion.div>
             <div></div>
-            <motion.div variants={fanImage}>
+            <motion.div 
+              variants={fanImage}
+            >
               <img src={fan1} alt="Chelsea fan 1" className="w-24 h-24 md:w-28 md:h-28 object-cover rounded-xl shadow" />
             </motion.div>
             <div></div>
